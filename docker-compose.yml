@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  mysql:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=super_secret_pass
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+  ipam:
+    depends_on:
+      - mysql
+    image: phpipam:test
+    environment:
+      - MYSQL_ENV_MYSQL_USER=root
+      - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
+      - MYSQL_ENV_MYSQL_HOST=phpipam_mysql_1
+    restart: unless-stopped
+    ports:
+      - "80:80"
