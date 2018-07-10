@@ -11,7 +11,7 @@ services:
   ipam:
     depends_on:
       - mysql
-    image: phpipam:test
+    image: scrubs/phpipam:test
     environment:
       - MYSQL_ENV_MYSQL_USER=root
       - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
