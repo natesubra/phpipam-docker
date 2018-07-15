@@ -20,6 +20,7 @@ version: '2'
 services:
   mysql:
     image: mariadb
+    name: phpipam_mysql_1
     environment:
       - MYSQL_ROOT_PASSWORD=super_secret_pass
     restart: always
@@ -28,7 +29,7 @@ services:
   ipam:
     depends_on:
       - mysql
-    image: phpipam-docker
+    image: scrubs/phpipam-docker
     environment:
       - MYSQL_ENV_MYSQL_USER=root
       - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
