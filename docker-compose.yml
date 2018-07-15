@@ -3,6 +3,7 @@ version: '2'
 services:
   mysql:
     image: mariadb
+    name: phpipam_mysql_1
     environment:
       - MYSQL_ROOT_PASSWORD=super_secret_pass
     restart: always
