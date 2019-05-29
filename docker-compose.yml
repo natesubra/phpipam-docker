@@ -1,14 +1,15 @@
-version: '2'
+version: '3'
 
 services:
   mysql:
-    image: mariadb
-    name: phpipam_mysql_1
+    image: mariadb:latest
+    container_name: phpipam_mysql_1
     environment:
       - MYSQL_ROOT_PASSWORD=super_secret_pass
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./mysql:/var/lib/mysql
+
   ipam:
     depends_on:
       - mysql
