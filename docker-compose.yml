@@ -13,7 +13,7 @@ services:
   ipam:
     depends_on:
       - mysql
-    image: scrubs/phpipam:latest
+    image: scrubs/phpipam-docker:latest
     environment:
       - MYSQL_ENV_MYSQL_USER=root
       - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
