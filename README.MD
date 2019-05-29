@@ -10,26 +10,27 @@ Learn more on [phpIPAM homepage](http://phpipam.net)
 
 ## How to use this Docker image
 
-### Docker compose 
+### Docker compose
 
 You can create an all-in-one YAML deployment descriptor with Docker compose, for example:
 
 ```yaml
-version: '2'
+version: '3'
 
 services:
   mysql:
-    image: mariadb
-    name: phpipam_mysql_1
+    image: mariadb:latest
+    container_name: phpipam_mysql_1
     environment:
       - MYSQL_ROOT_PASSWORD=super_secret_pass
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./mysql:/var/lib/mysql
+
   ipam:
     depends_on:
       - mysql
-    image: scrubs/phpipam-docker
+    image: scrubs/phpipam:latest
     environment:
       - MYSQL_ENV_MYSQL_USER=root
       - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
@@ -37,10 +38,11 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+
 ```
 
 And next :
 
-```bash 
+```bash
 $ docker-compose up -d
 ```
