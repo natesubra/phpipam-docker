@@ -8,6 +8,18 @@ Learn more on [phpIPAM homepage](http://phpipam.net)
 
 ![phpIPAM logo](http://phpipam.net/wp-content/uploads/2014/12/phpipam_logo_small.png)
 
+## Links to this image and image build process
+
+[Dockerhub](https://hub.docker.com/r/scrubs/phpipam-docker) | [GitHub](https://www.github.com/natesubra/phpipam-docker)
+
+## Changes
+
+### release-v1.3.2
+
+* Update dependency [php-saml](https://github.com/onelogin/php-saml) to v3.1.1
+* Update dependency [PHPMailer](https://github.com/PHPMailer/PHPMailer) to v6.0.7
+* Update dockerfile, removed autoremove, apt-get clean, added noninteractive variable
+
 ## How to use this Docker image
 
 ### Docker compose
