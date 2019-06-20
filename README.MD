@@ -26,6 +26,8 @@ Learn more on [phpIPAM homepage](http://phpipam.net)
 
 You can create an all-in-one YAML deployment descriptor with Docker compose, for example:
 
+docker-compose.yml:
+
 ```yaml
 version: '3'
 
@@ -42,7 +44,7 @@ services:
   ipam:
     depends_on:
       - mysql
-    image: scrubs/phpipam:latest
+    image: scrubs/phpipam-docker:latest
     environment:
       - MYSQL_ENV_MYSQL_USER=root
       - MYSQL_ENV_MYSQL_PASSWORD=super_secret_pass
